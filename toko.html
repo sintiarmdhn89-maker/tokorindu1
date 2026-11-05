@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RINDU PLASTIK - Ramadhan 2026</title>
+
+<style>
+  body{
+    margin:0;
+    font-family:"Poppins", sans-serif;
+    background:linear-gradient(135deg,#e8fff3,#ffffff,#e9fdf3);
+    scroll-behavior:smooth;
+  }
+
+  /* HEADER RAMADHAN */
+  header{
+    padding:20px;
+    background:linear-gradient(90deg,#0c5f3f,#0f8a57);
+    color:white;
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 3px 12px rgba(0,0,0,0.15);
+    z-index:10;
+    border-bottom:3px solid #d4b65a;
+  }
+
+  nav button{
+    padding:10px 20px;
+    border:none;
+    background:#d4b65a;
+    color:#0c4a33;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  .section{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+  }
+
+  .card{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    border:1px solid #dbeee3;
+    box-shadow:0 6px 22px rgba(0,0,0,0.07);
+    margin-bottom:30px;
+  }
+
+  h2{
+    margin-top:0;
+    font-weight:700;
+    color:#0c5f3f;
+  }
+
+  /* PRODUK */
+  .produk-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+  }
+
+  .produk{
+    background:#f4fff8;
+    padding:16px;
+    border-radius:12px;
+    border:1px solid #cbecd5;
+  }
+
+  .produk button{
+    margin-top:10px;
+    padding:8px 16px;
+    border:none;
+    background:#0f8a57;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  /* KERANJANG */
+  #keranjang-list p{
+    padding:10px;
+    background:#ecfff5;
+    border-radius:8px;
+    margin-bottom:6px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .hapus-btn{
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:4px 8px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+  }
+
+  input,select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #c3c3c3;
+    margin-bottom:12px;
+  }
+
+  .btn-wa{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+  }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h3>🌙 RINDU PLASTIK — Ramadhan 2026</h3>
+  <nav>
+    <button onclick="scrollToId('beranda')">Beranda</button>
+    <button onclick="scrollToId('produk')">Produk</button>
+    <button onclick="scrollToId('pesan')">Pemesanan</button>
+  </nav>
+</header>
+
+<!-- ===================== PAGE 1 ======================== -->
+<section id="beranda" class="section">
+  <div class="card">
+    <h2>Selamat Datang di <b>RINDU PLASTIK</b> 🌙✨</h2>
+    <p>Kami menyediakan berbagai bahan kue, plastik, dan perlengkapan usaha dengan kualitas terbaik untuk kebutuhan Ramadhan & Idul Fitri 2026.</p>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2 (PRODUK) ======================== -->
+<section id="produk" class="section">
+  <div class="card">
+    <h2>Daftar Produk Ramadhan 2026</h2>
+
+    <div class="produk-grid">
+
+      <div class="produk">
+        <h3>Tepung Terigu Premium</h3>
+        <label>Pilih Berat:</label>
+        <select onchange="setBerat(this, 'Tepung Terigu Premium')">
+          <option value="">Pilih Berat</option>
+          <option>1/4 kg</option>
+          <option>1/2 kg</option>
+          <option>1 kg</option>
+          <option>5 kg</option>
+          <option>10 kg</option>
+        </select>
+        <button onclick="tambahKeranjang('Tepung Terigu Premium')">Tambah</button>
+      </div>
+
+      <div class="produk">
+        <h3>Gula Halus</h3>
+        <label>Pilih Berat:</label>
+        <select onchange="setBerat(this, 'Gula Halus')">
+          <option value="">Pilih Berat</option>
+          <option>1/4 kg</option>
+          <option>1/2 kg</option>
+          <option>1 kg</option>
+        </select>
+        <button onclick="tambahKeranjang('Gula Halus')">Tambah</button>
+      </div>
+
+      <div class="produk">
+        <h3>Mentega / Butter</h3>
+        <label>Pilih Berat:</label>
+        <select onchange="setBerat(this, 'Mentega')">
+          <option value="">Pilih Berat</option>
+          <option>1/2 kg</option>
+          <option>1 kg</option>
+          <option>2 kg</option>
+        </select>
+        <button onclick="tambahKeranjang('Mentega')">Tambah</button>
+      </div>
+
+      <div class="produk">
+        <h3>Toples</h3>
+        <label>Pilih Jumlah:</label>
+        <select onchange="setBerat(this, 'Toples')">
+          <option value="">Pilih</option>
+          <option>1 buah</option>
+          <option>5 buah</option>
+          <option>10 buah</option>
+        </select>
+        <button onclick="tambahKeranjang('Toples')">Tambah</button>
+      </div>
+
+      <div class="produk">
+        <h3>Keju Mozzarella Perfetto</h3>
+        <label>Pilih Berat:</label>
+        <select onchange="setBerat(this, 'Keju Mozzarella Perfetto')">
+          <option value="">Pilih Berat</option>
+          <option>250 gram</option>
+          <option>500 gram</option>
+          <option>1 kg</option>
+        </select>
+        <button onclick="tambahKeranjang('Keju Mozzarella Perfetto')">Tambah</button>
+      </div>
+
+      <div class="produk">
+        <h3>Plastik 9 x 10</h3>
+        <label>Pilih Jumlah:</label>
+        <select onchange="setBerat(this, 'Plastik 9 x 10')">
+          <option value="">Pilih</option>
+          <option>10 pcs</option>
+          <option>50 pcs</option>
+          <option>100 pcs</option>
+        </select>
+        <button onclick="tambahKeranjang('Plastik 9 x 10')">Tambah</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KERANJANG -->
+  <div class="card">
+    <h2>Keranjang Anda</h2>
+    <div id="keranjang-list">Belum ada barang.</div>
+  </div>
+
+  <button onclick="scrollToId('pesan')" 
+    style="padding:12px 20px;border:none;background:#0f8a57;color:white;border-radius:10px;cursor:pointer;">
+    Lanjut ke Pemesanan »
+  </button>
+</section>
+
+<!-- ===================== FORM PEMESANAN ======================== -->
+<section id="pesan" class="section">
+  <div class="card">
+    <h2>Form Pemesanan</h2>
+
+    <label>Nama Pemesan:</label>
+    <input type="text" id="nama" placeholder="Masukkan Nama">
+
+    <label>Alamat:</label>
+    <input type="text" id="alamat" placeholder="Masukkan Alamat">
+
+    <label>Metode Pembayaran:</label>
+    <select id="pembayaran">
+      <option>COD</option>
+      <option>Transfer Bank</option>
+      <option>E-Wallet</option>
+    </select>
+
+    <button class="btn-wa" onclick="kirimWA()">Kirim Pesanan via WhatsApp</button>
+  </div>
+
+  <button onclick="scrollToId('beranda')" 
+    style="padding:10px 20px;border:none;background:#707070;color:white;border-radius:10px;cursor:pointer;">
+    Kembali ke Beranda
+  </button>
+</section>
+
+<script>
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  }
+
+  let keranjang = [];
+  let pilihanBerat = {};
+
+  function setBerat(select, item){
+    pilihanBerat[item] = select.value;
+  }
+
+  function tambahKeranjang(item){
+    if(!pilihanBerat[item]){
+      alert("Pilih berat/jumlah terlebih dahulu");
+      return;
+    }
+
+    keranjang.push(item + " — " + pilihanBerat[item]);
+    updateKeranjang();
+  }
+
+  function hapusItem(index){
+    keranjang.splice(index,1);
+    updateKeranjang();
+  }
+
+  function updateKeranjang(){
+    const list = document.getElementById("keranjang-list");
+
+    if(keranjang.length === 0){
+      list.innerHTML = "Belum ada barang.";
+      return;
+    }
+
+    list.innerHTML = keranjang.map((item,i) =>
+      `<p>${item} <button class='hapus-btn' onclick="hapusItem(${i})">Hapus</button></p>`
+    ).join("");
+  }
+
+  const NOMOR_WA = "6282387760907";
+
+  function kirimWA(){
+    let nama = document.getElementById("nama").value;
+    let alamat = document.getElementById("alamat").value;
+    let pembayaran = document.getElementById("pembayaran").value;
+
+    if(!nama || !alamat){
+      alert("Harap isi nama & alamat.");
+      return;
+    }
+
+    let pesan =
+`Halo, Rindu Plastik.
+
+Saya ingin mengajukan pemesanan dengan rincian sebagai berikut:
+
+━━━━━━━━━━━━━━━━━━━━━━
+🛍️  P E S A N A N
+━━━━━━━━━━━━━━━━━━━━━━
+${keranjang.map(i => "• " + i).join("\n")}
+
+━━━━━━━━━━━━━━━━━━━━━━
+👤  D A T A  P E M E S A N
+━━━━━━━━━━━━━━━━━━━━━━
+Nama        : ${nama}
+Alamat      : ${alamat}
+Pembayaran  : ${pembayaran}
+
+━━━━━━━━━━━━━━━━━━━━━━
+Mohon dilakukan pengecekan ketersediaan barang.
+Saya menunggu konfirmasi lebih lanjut.
+Terima kasih.
+`;
+
+    let url = `https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
